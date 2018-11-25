@@ -1,0 +1,78 @@
+openapi: 3.0.0
+info:
+  title: comjoodoc api documentation
+  description : documentation for comjoodoc-server and comjoodoc-server-fjs
+  version : 0.1.2
+
+servers:
+  - url: https://hub-dev.comjoo.net/api/v1
+  - url: https://hub-dev.comjoo.net/api/v
+
+
+  paths:
+    /organizations:
+      get:
+      summary: Returns  list of organizations
+      description: not http but socketIO subscription on resource
+    /connections:
+      get:
+      summary: Returns  list of open connections
+      description: not http not http but socketIO subscription on resource
+    /connect:
+      get:
+        summary: Returns user's connection history and modifies connection status of users
+        description: not http but socketIO subscription on resource
+    /users:
+      get:
+        summary: Returns list of users
+        description:  not http but socketIO subscription on resource
+    /userchangePasword:
+      put:
+        summary: change user's password Returns "done" on success
+        description: connects to keycloak's admin api to change user's password
+    /userSearch:
+      get:
+        summary: Returns list of users filtered according to search query parameters
+        description: not http but socketIO subscription on resource
+    /joinUser:
+      put:
+        summary: establishes friendship between two users ( request and acceptance are both handled here)
+        description: not http but socketIO transport.
+    /unjoinUser:
+      put:
+        summary: terminates friendship status between two users
+        description: not http but socketIO transport
+    /myProfileGet:
+      get:
+        summary: Returns user's own profile data
+        description: socketIO subscription
+    /userProfileGet:
+      get:
+        summary: Returns specified user's profile data
+        description : socketIo subscription
+    /updateUserProfile:
+      put:
+        summary: modifies user's profile data
+        description: not http but socketIO transport
+
+    /registerDevice:
+      put:
+        summary: add one of user's devices for push notification
+        description: not http but socketIO transport
+
+    /unregisterDevice:
+      put:
+        summary: remove one of user's devices from push notification
+        description: not http but socketIO transport
+
+    /inviteUsers:
+      put:
+
+
+    /usersFrontispiece:
+      get:
+      post:
+    /userAvatar:
+      post:
+      get:
+    /userDeleteAvatar:
